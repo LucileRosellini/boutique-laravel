@@ -21,11 +21,17 @@
                     <td class="text-primary"><strong>{!! $item['titre'] !!}</strong></td>
                     <td>{{ $item['prix'] }} €</td>
                     <td>{!! link_to_route('article.show', 'Voir', [$item['id']], ['class' => 'btn btn-success btn-block']) !!}</td>
+                    <!-- Génère un lien vers la vue "show" de l'objet article avec arugument ID de l'article-->
                     <td>{!! link_to_route('article.edit', 'Modifier', [$item['id']], ['class' => 'btn btn-warning btn-block']) !!}</td>
+
                     <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['article.destroy', $item['id']]]) !!}
-                            {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+                        <!-- Génère des formulaires à partir des template laravel -->
+                        {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
+
                         {!! Form::close() !!}
+
+
                     </td>
                 </tr>
                 @endforeach

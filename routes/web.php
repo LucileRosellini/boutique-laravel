@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',function () {return redirect()->route('article.index');});
-Route::get('/laravel',['uses' => 'WelcomeController@index', 'as' => 'laravel']);
+Route::get('/laravel');
 Route::resource('/article', 'Article');
 Route::get('/{any}',function () {
 	return redirect()->route('article.index');

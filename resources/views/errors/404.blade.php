@@ -1,5 +1,9 @@
 @extends('template')
 
+@section('titre')
+
+@endsection
+
 @section('contenu')
     <br>
     <div class="col-sm-offset-4 col-sm-4">

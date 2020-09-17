@@ -16,8 +16,11 @@ class Article extends Controller
     public function index()
     {
         $articles = ArticleModel::all();
+        // ::all methode de classe qui retourne l'ensemble (array) des objets appartenant au modele articleModel
         $articles->fresh();
+        // Rafraichit les données --> question à poser au formateur / Actualisation
         return view('catalog', [ 'catalog' => $articles ]);
+        //Retourne la vue 'catalog" avec comme arguments l'ensemble des articles.
     }
 
     /**
@@ -28,6 +31,7 @@ class Article extends Controller
     public function create()
     {
         return view('form');
+        //Retourne la vue du formulaire creation d'article
     }
 
     /**
@@ -47,6 +51,7 @@ class Article extends Controller
         $article->save();
         // return view('catalog', [ 'catalog' => $articles ]);
         return redirect()->route('article.index');
+
     }
 
     /**
@@ -57,14 +62,16 @@ class Article extends Controller
      */
     public function show($id)
     {
+        $toto='coucou';
     $article =  ArticleModel::where('id', $id)->firstOrFail();
+    /*findOrFail($id)prend un identifiant et renvoie un seul modèle. Si aucun modèle correspondant n'existe, il renvoie une erreur */
 
         return view('article', [
             'titre' => $article->titre,
             'prix' => $article->prix,
             'description' => $article->description,
             'id' => $article->id
-        ]);
+        ])->with('toto',$toto);
     }
 
     /**
@@ -76,7 +83,7 @@ class Article extends Controller
     public function edit($id)
     {
         $article =  ArticleModel::where('id', $id)->firstOrFail();
-
+        /*findOrFail($id)prend un identifiant et renvoie un seul modèle. Si aucun modèle correspondant n'existe, il renvoie une erreur */
         return view('articleedit', [
             'titre' => $article->titre,
             'prix' => $article->prix,
@@ -84,6 +91,7 @@ class Article extends Controller
             'id' => $article->id
         ]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -121,4 +129,5 @@ class Article extends Controller
         $article->destroy($id);
 		return back();
     }
+
 }

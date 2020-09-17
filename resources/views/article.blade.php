@@ -1,11 +1,12 @@
 @extends('template')
 
-@section('titre')
-    {{ $titre }}
+@section('')
+
 @endsection
 
 @section('contenu')
     <br>
+    <div>{{ $toto }}<div>
     <div class="col-sm-offset-3 col-sm-6">
         <div class="panel panel-info">
             <div class="panel-heading">{!! $titre !!}</div>
@@ -27,6 +28,7 @@
                         {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cet article ?\')']) !!}
                         {!! Form::close() !!}
                     </div>{!! link_to_route('article.index', 'catalog', null, ['class' => 'btn btn-success btn-block']) !!}</div>
+
                     <div>
             </div>
         </div>
