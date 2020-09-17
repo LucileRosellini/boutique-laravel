@@ -19,7 +19,7 @@ class Article extends Controller
         // ::all methode de classe qui retourne l'ensemble (array) des objets appartenant au modele articleModel
         $articles->fresh();
         // Rafraichit les données --> question à poser au formateur / Actualisation
-        return view('catalog', [ 'catalog' => $articles ]);
+        return view('monCatalog', [ 'catalog' => $articles ]);
         //Retourne la vue 'catalog" avec comme arguments l'ensemble des articles.
     }
 

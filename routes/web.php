@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/laravel');
+
 Route::resource('/article', 'Article');
+Route::get('/bar',function(){
+    return view('bar')->with('toto',"coucou");
+});
+Route::get('/foo',function(){
+    return view('foo')->with('toto',"coucou");
+});
 Route::get('/{any}',function () {
 	return redirect()->route('article.index');
 })->where('any', '.*');
+
 
